@@ -75,24 +75,6 @@ if(bio.skills.length > 0) {
 
 }
 
-var cameron = {};
-cameron.job = "course developer";
-
-var makeCourse = function() {
-  console.log("Made a course");
-}
-
-  var courses = 0;
-  while(cameron.job === "course developer") {
-    makeCourse();
-    courses = courses + 1;
-    if (courses === 10) {
-      cameron.job = "learning specialist";
-  }
-}
-
-console.log(cameron.job);
-
 
 var work = {
   "jobs": [
@@ -225,7 +207,7 @@ var projects = {
     {
       "title" : "Portfolio",
       "dates" : "March 2016",
-      "description" : "A wonder webpage to give clients and employers an opprotunity to examine my work.",
+      "description" : "A wonderful webpage to give clients and employers an opprotunity to examine my work.",
     }
   ]
 };
