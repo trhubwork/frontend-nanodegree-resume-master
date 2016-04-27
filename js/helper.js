@@ -12,8 +12,8 @@ Cameron Pittman
 These are HTML strings. As part of the course, you'll be using JavaScript functions
 replace the %data% placeholder text you see in them.
 */
-var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span>%data%</span><hr/>';
+var HTMLheaderName = '<h1 id="header">%data%</h1>';
+var HTMLheaderRole = '<span id="role">%data%</span><hr/>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
@@ -23,7 +23,7 @@ var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><
 var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
 var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 
-var HTMLbioPic = '<img src="%data%" class="biopic">';
+var HTMLbioPic = '<img src="%data%" class="topContacts">';
 var HTMLWelcomeMsg = '<span class="welcome-message">%data%</span>';
 
 var HTMLskillsStart = '<h3 id="skillsH3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
@@ -47,7 +47,7 @@ var HTMLschoolName = '<a href="#">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolMajor = '<em><br>Area of Study: %data%</em>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
@@ -65,7 +65,7 @@ The International Name challenge in Lesson 2 where you'll create a function that
 $(document).ready(function() {
   $('button').click(function() {
     var iName = inName(name) || function(){};
-    $('#name').html(iName);  
+    $('#name').html(iName);
   });
 });
 
@@ -111,7 +111,7 @@ function initializeMap() {
 
   // This next line makes `map` a new Google Map JavaScript Object and attaches it to
   // <div id="map">, which is appended as part of an exercise late in the course.
-  map = new google.maps.Map(document.querySelector('#map'), mapOptions);
+  map = new google.maps.Map(document.querySelector('#mapDiv'), mapOptions);
 
 
   /*
@@ -139,6 +139,7 @@ function initializeMap() {
     }
 
     return locations;
+
   }
 
   /*
@@ -233,11 +234,12 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
-// Vanilla JS way to listen for resizing of the window
-// and adjust map bounds
-//window.addEventListener('resize', function(e) {
+//Vanilla JS way to listen for resizing of the window
+//and adjust map bounds
+window.addEventListener('resize', function(e) {
+
   // Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+map.fitBounds(mapBounds);
+});
